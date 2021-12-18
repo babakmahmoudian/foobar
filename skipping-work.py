@@ -40,10 +40,31 @@ def test_x_has_extra():
 
 
 def test_y_has_extra():
-    x = [14, 27, 1, 4, 2, 50, 3, 1]         # -> [1, 1, 2, 3, 4, 14, 27, 50]
-    # -> [-4, 1, 1, 2, 3, 4, 14, 27, 50]
+    # x = [1, 1, 2, 3, 4, 14, 27, 50]
+    # y = [-4, 1, 1, 2, 3, 4, 14, 27, 50]
+    x = [14, 27, 1, 4, 2, 50, 3, 1]
     y = [2, 4, -4, 3, 1, 1, 14, 27, 50]
     expected = -4
+
+    actual = solution(x, y)
+
+    assert actual == expected
+
+
+def test_x_has_extra_at_beginning():
+    x = [-1, 1, 2, 3, 4]
+    y = [1, 2, 3, 4]
+    expected = -1
+
+    actual = solution(x, y)
+
+    assert actual == expected
+
+
+def test_y_has_extra_at_end():
+    x = [1, 2, 3, 4]
+    y = [-1, 1, 2, 3, 4]
+    expected = -1
 
     actual = solution(x, y)
 
