@@ -61,7 +61,7 @@ def test_x_has_extra_at_beginning():
     assert actual == expected
 
 
-def test_y_has_extra_at_end():
+def test_y_has_extra_at_beginning():
     x = [1, 2, 3, 4]
     y = [-1, 1, 2, 3, 4]
     expected = -1
