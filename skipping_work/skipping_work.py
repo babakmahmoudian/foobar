@@ -16,8 +16,10 @@ def solution_2(x, y):
     x.sort()
     y.sort()
     for i in range(min(len(x), len(y))):
-        if x[i] != y[i]:
-            return min(x[i], y[i])
+        x_id = x[i]
+        y_id = y[i]
+        if x_id != y_id:
+            return min(x_id, y_id)
     return x[-1] if len(x) > len(y) else y[-1]
 
 
@@ -28,7 +30,7 @@ def solution_3(x, y):
 
 
 def solution_4(x, y):
-    '''Solution 4: Using dictionary with keys form -1000 to 1000'''
+    '''Solution 4: Using dictionary (keys taken from x)'''
 
     all_ids = dict()
 
