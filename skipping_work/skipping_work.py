@@ -51,7 +51,7 @@ def solution_4(x, y):
 def solution_5(x, y):
     '''Solution 5: Using list of 2000'''
 
-    all_ids = [0 for _ in range(2000)]
+    all_ids = [0 for _ in range(2001)]
 
     for id in x:
         all_ids[id + 1000] += 1
@@ -67,7 +67,7 @@ def solution_5(x, y):
 def solution_6(x, y):
     '''Solution 6: Using array of 2000'''
 
-    all_ids = array('H', [0 for _ in range(2000)])
+    all_ids = array('H', [0 for _ in range(2001)])
 
     for id in x:
         all_ids[id + 1000] += 1
