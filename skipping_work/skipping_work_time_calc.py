@@ -52,6 +52,9 @@ def calc_solution_time(solution, samples):
 
 
 if __name__ == '__main__':
+    solution_names = [solution_name for solution_name, solution in inspect.getmembers(
+        skipping_work, inspect.isfunction)]
+
     for key, value in sample_config.items():
         sample_count = sample_config[key]["sample_count"]
         sample_length = sample_config[key]["sample_length"]
@@ -70,3 +73,29 @@ if __name__ == '__main__':
         sys.stdout.write(
             tabulate(solution_times, headers=['solution', 'time']))
         sys.stdout.write('\n\n')
+
+    sys.stdout.write(
+        "Gradually incrementing the length of input data\n\n")
+    solution_times = []
+    for count in range(50, 1001, 50):
+        samples = create_samples(5000, count)
+        current_times = [str(count)]
+        for solution_name in solution_names:
+            solution = getattr(skipping_work, solution_name)
+            current_times.append(
+                str(calc_solution_time(solution, samples))
+            )
+        solution_times.append(current_times)
+
+    for i in range(len(solution_times) - 1, 0, -1):
+        for j in range(len(solution_names), 0, -1):
+            st = float(solution_times[i][j])
+            pre_st = float(solution_times[i-1][j])
+            first_st = float(solution_times[0][j])
+            mul = st/pre_st if pre_st else 0
+            mul_total = st/first_st if first_st else 0
+            solution_times[i][j] += " -> *%.1f (*%.1f)" % (mul, mul_total)
+
+    sys.stdout.write(
+        tabulate(solution_times, headers=['count'] + solution_names))
+    sys.stdout.write('\n\n')
