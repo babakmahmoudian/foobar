@@ -61,7 +61,7 @@ if __name__ == '__main__':
         samples = create_samples(count=sample_count, length=sample_length)
 
         solution_times = []
-        for i in range(1, 5):
+        for i in range(1, 7):
             solution = getattr(skipping_work, "solution_%d" % i)
             solution_times.append(
                 [solution.__doc__, calc_solution_time(solution, samples)]

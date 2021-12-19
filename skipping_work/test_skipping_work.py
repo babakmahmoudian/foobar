@@ -1,4 +1,4 @@
-from skipping_work import solution_4 as solution
+from skipping_work import solution_6 as solution
 
 
 def test_x_has_extra():

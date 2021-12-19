@@ -1,3 +1,6 @@
+from array import array
+
+
 def solution_1(x, y):
     '''Solution 1: Union + (not in)'''
 
@@ -27,14 +30,49 @@ def solution_3(x, y):
 def solution_4(x, y):
     '''Solution 4: Using dictionary with keys form -1000 to 1000'''
 
-    all_ids = dict.fromkeys(range(-1000, 1000), 0)
+    all_ids = dict()
 
     for x_id in x:
         all_ids[x_id] = 1
 
     for y_id in y:
-        all_ids[y_id] += 1
+        try:
+            all_ids[y_id] += 1
+        except KeyError:
+            return y_id
 
     for key, value in all_ids.items():
         if value == 1:
             return key
+
+
+def solution_5(x, y):
+    '''Solution 5: Using list of 2000'''
+
+    all_ids = [0 for _ in range(2000)]
+
+    for id in x:
+        all_ids[id + 1000] += 1
+
+    for id in y:
+        all_ids[id + 1000] += 1
+
+    for i in range(2000):
+        if all_ids[i] == 1:
+            return i - 1000
+
+
+def solution_6(x, y):
+    '''Solution 6: Using array of 2000'''
+
+    all_ids = array('H', [0 for _ in range(2000)])
+
+    for id in x:
+        all_ids[id + 1000] += 1
+
+    for id in y:
+        all_ids[id + 1000] += 1
+
+    for i in range(2000):
+        if all_ids[i] == 1:
+            return i - 1000
