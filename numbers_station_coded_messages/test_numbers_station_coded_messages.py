@@ -1,4 +1,4 @@
-from numbers_station_coded_messages import solution_1 as solution
+from numbers_station_coded_messages import solution_2 as solution
 
 
 def test_find_seq():
@@ -15,6 +15,36 @@ def test_find_seq_more_than_one_seq():
     l = [4, 3, 5, 7, 8]
     t = 12
     expected = [0, 2]
+
+    actual = solution(l, t)
+
+    assert actual == expected
+
+
+def test_find_seq_first_element_equal_to_sum():
+    l = [12, 3, 10, 2, 8]
+    t = 12
+    expected = [0, 0]
+
+    actual = solution(l, t)
+
+    assert actual == expected
+
+
+def test_find_seq_first_element_greater_than_sum():
+    l = [17, 3, 10, 2, 8]
+    t = 12
+    expected = [2, 3]
+
+    actual = solution(l, t)
+
+    assert actual == expected
+
+
+def test_find_seq_middle_element_greater_than_sum():
+    l = [1, 17, 10, 2, 8]
+    t = 12
+    expected = [2, 3]
 
     actual = solution(l, t)
 
