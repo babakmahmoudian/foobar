@@ -14,7 +14,7 @@ def solution_2(l, t):
     total_sum = 0
     start_index = 0
 
-    for i in range(0, len(l)):
+    for i in range(len(l)):
         total_sum += l[i]
 
         if total_sum == t:
