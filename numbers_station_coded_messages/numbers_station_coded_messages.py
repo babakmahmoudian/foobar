@@ -29,9 +29,8 @@ def solution_2(l, t):
 
 def solution_3(l, t):
     prefix_sums = {0: -1}
-
     current_sum = 0
-    for i in range(0, len(l)):
+    for i in range(len(l)):
         current_sum += l[i]
         prefix_sums[current_sum] = i
 
