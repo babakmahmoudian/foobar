@@ -64,7 +64,7 @@ def test_find_seq_ignoring_first_element():
 def test_not_find_seq():
     l = [1, 2, 3, 4]
     t = 15
-    expected = [-1, 1]
+    expected = [-1, -1]
 
     actual = solution(l, t)
 

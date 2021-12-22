@@ -7,7 +7,7 @@ def solution_1(l, t):
                 return [i, j]
             if sum > t:
                 break
-    return [-1, 1]
+    return [-1, -1]
 
 
 def solution_2(l, t):
@@ -24,7 +24,7 @@ def solution_2(l, t):
         if total_sum == t:
             return [start_index, i]
 
-    return [-1, 1]
+    return [-1, -1]
 
 
 def solution_3(l, t):
@@ -38,4 +38,4 @@ def solution_3(l, t):
         if diff in prefix_sums:
             return [prefix_sums[diff] + 1, i]
 
-    return [-1, 1]
+    return [-1, -1]
