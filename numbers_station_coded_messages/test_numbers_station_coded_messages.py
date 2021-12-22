@@ -51,6 +51,16 @@ def test_find_seq_middle_element_greater_than_sum():
     assert actual == expected
 
 
+def test_find_seq_ignoring_first_element():
+    l = [1, 2, 3, 4, 5]
+    t = 9
+    expected = [1, 3]
+
+    actual = solution(l, t)
+
+    assert actual == expected
+
+
 def test_not_find_seq():
     l = [1, 2, 3, 4]
     t = 15

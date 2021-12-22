@@ -17,11 +17,11 @@ def solution_2(l, t):
     for i in range(len(l)):
         total_sum += l[i]
 
-        if total_sum == t:
-            return [start_index, i]
-
         while total_sum > t:
             total_sum -= l[start_index]
             start_index += 1
+
+        if total_sum == t:
+            return [start_index, i]
 
     return [-1, 1]
