@@ -1,4 +1,4 @@
-from numbers_station_coded_messages import solution_2 as solution
+from numbers_station_coded_messages import solution_3 as solution
 
 
 def test_find_seq():

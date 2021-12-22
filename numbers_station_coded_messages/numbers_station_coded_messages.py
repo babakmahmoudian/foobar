@@ -25,3 +25,18 @@ def solution_2(l, t):
             return [start_index, i]
 
     return [-1, 1]
+
+
+def solution_3(l, t):
+    prefix_sums = {0: -1}
+
+    current_sum = 0
+    for i in range(0, len(l)):
+        current_sum += l[i]
+        prefix_sums[current_sum] = i
+
+        diff = current_sum - t
+        if diff in prefix_sums:
+            return [prefix_sums[diff] + 1, i]
+
+    return [-1, 1]
