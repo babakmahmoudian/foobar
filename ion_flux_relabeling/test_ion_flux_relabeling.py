@@ -1,4 +1,4 @@
-from ion_flux_relabeling import solution_1 as solution
+from ion_flux_relabeling import solution_2 as solution
 
 
 def test_find_parents_including_root():
@@ -34,6 +34,16 @@ def test_find_parent_of_child_of_root():
 def test_find_parent_of_root():
     h = 5
     q = [31]
+    expected = [-1]
+
+    actual = solution(h, q)
+
+    assert actual == expected
+
+
+def test_height_is_one():
+    h = 1
+    q = [1]
     expected = [-1]
 
     actual = solution(h, q)
