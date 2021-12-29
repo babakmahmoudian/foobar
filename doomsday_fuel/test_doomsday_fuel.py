@@ -1,4 +1,4 @@
-from doomsday_fuel_1 import solution as my_solution
+from doomsday_fuel import solution as my_solution
 from working_solution import solution as working_solution
 
 
