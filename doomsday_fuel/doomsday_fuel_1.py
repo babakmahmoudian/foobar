@@ -3,7 +3,7 @@ from functools import reduce
 
 
 def solution(m):
-    if len(m) <= 2:
+    if len(m) < 2:
         return [1, 1]
 
     (std_form_r, std_form_f) = get_std_form_parts(m)
@@ -16,11 +16,11 @@ def solution(m):
 
 
 def get_std_form_parts(matrix):
-    absorbing_states_count = 0
+    absorbing_states = []
     non_absorbing_states = []
     for i in range(len(matrix)):
         if all(x == 0 for x in matrix[i]):
-            absorbing_states_count += 1
+            absorbing_states.append(i)
         else:
             non_absorbing_states.append(i)
 
@@ -29,11 +29,14 @@ def get_std_form_parts(matrix):
 
     for i in non_absorbing_states:
         sum_of_row = sum(matrix[i])
-        row = [Fraction(matrix[i][j - absorbing_states_count], sum_of_row)
-               for j in range(len(matrix))]
+        row = []
+        for j in absorbing_states:
+            row.append(Fraction(matrix[i][j], sum_of_row))
+        for j in non_absorbing_states:
+            row.append(Fraction(matrix[i][j], sum_of_row))
 
-        std_form_r.append(row[:absorbing_states_count])
-        std_form_q.append(row[absorbing_states_count:])
+        std_form_r.append(row[:len(absorbing_states)])
+        std_form_q.append(row[len(absorbing_states):])
 
     tmp_std_form_f = []
     for i in range(len(non_absorbing_states)):
@@ -65,6 +68,9 @@ def get_invert_matrix(matrix):
                 matrix[0][c] * get_deternminant(get_minor(matrix, 0, c))
         return determinant
 
+    if len(matrix) == 1:
+        return [[Fraction(1) / matrix[0][0]]]
+
     determinant = get_deternminant(matrix)
 
     if len(matrix) == 2:
@@ -89,9 +95,9 @@ def get_invert_matrix(matrix):
 
 def multiply_matrix(matrix1, matrix2):
     result = []
-    for i in range(0, len(matrix1)):
+    for i in range(len(matrix1)):
         temp = []
-        for j in range(0, len(matrix2[0])):
+        for j in range(len(matrix2[0])):
             s = Fraction(0)
             for k in range(0, len(matrix1[0])):
                 s += matrix1[i][k] * matrix2[k][j]

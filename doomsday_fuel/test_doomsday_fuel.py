@@ -41,7 +41,7 @@ def test_one_state():
     assert actual == expected
 
 
-def test_two_states():
+def test_two_states_one_absorbong():
     m = [[0, 3], [0, 0]]
     expected = working_solution(m)
 
@@ -50,10 +50,10 @@ def test_two_states():
     assert actual == expected
 
 
-def all_states_absorbing():
-    m = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-    expected = working_solution(m)
+# def test_all_states_absorbing():
+#     m = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+#     expected = [0, 0, 0, 0, 1]
 
-    actual = my_solution(m)
+#     actual = my_solution(m)
 
-    assert actual == expected
+#     assert actual == expected
