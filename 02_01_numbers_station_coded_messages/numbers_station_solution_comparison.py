@@ -4,10 +4,10 @@ import time
 
 
 def run():
-    test()
+    compare()
 
 
-def test():
+def compare():
     t1 = 0
     t2 = 0
     t3 = 0
@@ -15,19 +15,19 @@ def test():
         l = random_list()
         t = randrange(10, 30)
 
-        start = time.process_time()
+        start = time.time()
         i1, j1 = solution_1(l, t)
-        end = time.process_time()
+        end = time.time()
         t1 += (end - start)
 
-        start = time.process_time()
+        start = time.time()
         i2, j2 = solution_2(l, t)
-        end = time.process_time()
+        end = time.time()
         t2 += (end - start)
 
-        start = time.process_time()
+        start = time.time()
         i3, j3 = solution_3(l, t)
-        end = time.process_time()
+        end = time.time()
         t3 += (end - start)
 
         if (i1 != i2 or j1 != j2):

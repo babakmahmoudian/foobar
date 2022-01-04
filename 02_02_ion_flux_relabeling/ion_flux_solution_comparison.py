@@ -4,24 +4,24 @@ import time
 
 
 def run():
-    test()
+    compare()
 
 
-def test():
+def compare():
     t1 = 0
     t2 = 0
     for i in range(0, 10000):
         h = randrange(7, 31)
         q = sample(range(1, pow(2, h)), randrange(1, 100))
 
-        start = time.process_time()
+        start = time.time()
         result1 = solution_1(h, q)
-        end = time.process_time()
+        end = time.time()
         t1 += (end - start)
 
-        start = time.process_time()
+        start = time.time()
         result2 = solution_2(h, q)
-        end = time.process_time()
+        end = time.time()
         t2 += (end - start)
 
         if result1 != result2:
