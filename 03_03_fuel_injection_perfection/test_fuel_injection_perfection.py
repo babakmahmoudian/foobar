@@ -17,3 +17,39 @@ def test_given_case_2():
     actual = solution(n)
 
     assert actual == expected
+
+
+def test_one():
+    n = '1'
+    expected = 0
+
+    actual = solution(n)
+
+    assert actual == expected
+
+
+def test_two():
+    n = '2'
+    expected = 1
+
+    actual = solution(n)
+
+    assert actual == expected
+
+
+def test_three():
+    n = '3'
+    expected = 2
+
+    actual = solution(n)
+
+    assert actual == expected
+
+
+def test_big_number():
+    n = '12412124512857890124132412452319283712549081240098123409125132059812349021'
+    expected = 327
+
+    actual = solution(n)
+
+    assert actual == expected
