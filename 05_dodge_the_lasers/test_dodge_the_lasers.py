@@ -3,7 +3,7 @@ from dodge_the_lasers import solution
 
 def test_given_case_1():
     s = '77'
-    expected = 4208
+    expected = '4208'
 
     actual = solution(s)
 
@@ -12,7 +12,7 @@ def test_given_case_1():
 
 def test_given_case_2():
     s = '5'
-    expected = 19
+    expected = '19'
 
     actual = solution(s)
 
