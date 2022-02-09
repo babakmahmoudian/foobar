@@ -3,7 +3,7 @@ def factorial(n):
 
 
 def combination(n, r):
-    return factorial(n) / (factorial(r) * factorial(n - r))
+    return factorial(n) // (factorial(r) * factorial(n - r))
 
 
 def solution(num_buns, num_required):
@@ -22,7 +22,7 @@ def solution(num_buns, num_required):
     key_count = combination(num_buns, num_required - 1)
 
     dist = [[] for i in range(num_buns)]
-    add_keys([], 0, 0, range(key_count))
+    add_keys([], 0, 0, list(range(key_count)))
 
     return dist
 

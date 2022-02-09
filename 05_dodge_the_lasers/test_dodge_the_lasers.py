@@ -1,4 +1,4 @@
-from dodge_the_lasers import solution
+from iterative_solution import solution
 
 
 def test_given_case_1():
